@@ -1,12 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Syrinj;
 
 public class Done_DestroyByContact : MonoBehaviour
 {
 	public GameObject explosion;
 	public GameObject playerExplosion;
 	public int scoreValue;
-	private Done_GameController gameController;
+	[Inject]private Done_GameController gameController;
 
 	void Start ()
 	{

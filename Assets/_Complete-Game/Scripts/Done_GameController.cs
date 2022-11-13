@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using ScriptableObjectArchitecture;
+using Syrinj;
 using UnityEngine.UI;
 
 public class Done_GameController : MonoBehaviour
 {
-    public GameObject[] hazards;
+    /*public GameObject[] hazards;
     public Vector3 spawnValues;
     public int hazardCount;
     public float spawnWait;
     public float startWait;
-    public float waveWait;
+    public float waveWait;*/
+    public Vector3 spawnValues;
 
     public Text scoreText;
     public Text restartText;
@@ -19,6 +22,7 @@ public class Done_GameController : MonoBehaviour
     private bool gameOver;
     private bool restart;
     private int score;
+    [Provides] public GameManagerSO gmso;
 
     void Start()
     {
@@ -44,18 +48,19 @@ public class Done_GameController : MonoBehaviour
 
     IEnumerator SpawnWaves()
     {
-        yield return new WaitForSeconds(startWait);
+        yield return new WaitForSeconds(gmso.startWait);
         while (true)
         {
-            for (int i = 0; i < hazardCount; i++)
+            for (int i = 0; i < gmso.hazardCount; i++)
             {
-                GameObject hazard = hazards[Random.Range(0, hazards.Length)];
-                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+                GameObject hazard = gmso.hazards[Random.Range(0, gmso.hazards.Length)];
+                Vector3 spawnPosition = new Vector3(Random.Range(-spawnValues.x, 
+                    spawnValues.x), spawnValues.y, spawnValues.z);
                 Quaternion spawnRotation = Quaternion.identity;
                 Instantiate(hazard, spawnPosition, spawnRotation);
-                yield return new WaitForSeconds(spawnWait);
+                yield return new WaitForSeconds(gmso.spawnWait);
             }
-            yield return new WaitForSeconds(waveWait);
+            yield return new WaitForSeconds(gmso.waveWait);
 
             if (gameOver)
             {

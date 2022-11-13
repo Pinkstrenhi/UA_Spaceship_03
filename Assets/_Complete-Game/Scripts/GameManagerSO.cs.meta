@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 5560580f87ed94248999c665cb2fa688
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - spawnValues: {fileID: 11400000, guid: 0b97da3590894f54e888230c3bf7883b, type: 2}
+  - hazardCount: {fileID: 11400000, guid: 684ebe3f4dcf0d54680f4fce332e142e, type: 2}
+  - spawnWait: {fileID: 11400000, guid: cadeaf4fc8c95e64789e4ebc314f4dea, type: 2}
+  - startWait: {fileID: 11400000, guid: dcacc4140fb17e548afaafb81ffeb1a5, type: 2}
+  - waveWait: {fileID: 11400000, guid: 02bcbfa45108def458b2c891fbf9fc90, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
